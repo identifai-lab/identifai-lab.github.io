@@ -1,0 +1,46 @@
+/* =====================================================================
+   content.css — content.html（研修の詳細）専用
+   ===================================================================== */
+.detail-hero{
+  background:var(--surface); border:1px solid var(--edge-soft); border-radius:14px;
+  padding:28px; margin:0 0 24px; box-shadow:var(--shadow);
+  display:grid; grid-template-columns:64px minmax(0,1fr); gap:22px; align-items:start;
+}
+.detail-hero .icon-tile{width:64px; height:64px; border-radius:14px}
+.detail-hero h1{font-size:26px; margin:2px 0 8px}
+.detail-lead{color:var(--ink-2); margin:0 0 18px; max-width:70ch}
+.meta-list{display:flex; flex-wrap:wrap; gap:10px 28px; margin:0; padding:18px 0 0; border-top:1px solid var(--edge-soft)}
+.meta-list div{min-width:120px}
+.meta-list dt{font-size:12px; color:var(--ink-3); margin-bottom:2px}
+.meta-list dd{margin:0; font-size:14px}
+
+.detail-cols{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:28px; align-items:start}
+.units{list-style:none; margin:0; padding:0; counter-reset:u}
+.units li{
+  counter-increment:u; display:grid; grid-template-columns:30px minmax(0,1fr) auto; gap:14px;
+  padding:14px 0; border-top:1px solid var(--edge-soft);
+}
+.units li:first-child{border-top:0; padding-top:4px}
+.units li::before{content:counter(u); font-variant-numeric:tabular-nums; color:var(--ink-3); font-family:var(--display); font-weight:700}
+.unit-title{font-weight:500}
+.unit-desc{color:var(--ink-2); font-size:13.5px; margin:2px 0 0}
+.unit-dur{color:var(--ink-3); font-size:13px; white-space:nowrap; font-variant-numeric:tabular-nums}
+
+.aside-card{background:var(--surface); border:1px solid var(--edge-soft); border-radius:14px; padding:22px; box-shadow:var(--shadow)}
+.aside-card + .aside-card{margin-top:18px}
+.aside-card h2{font-size:15px; margin-bottom:12px}
+.tag-row{display:flex; flex-wrap:wrap; gap:7px}
+.tag{padding:3px 10px; border-radius:999px; border:1px solid var(--edge); font-size:12.5px; color:var(--ink-2); background:#fbfcfe}
+.tag:hover{border-color:var(--accent); color:var(--accent-ink); background:var(--accent-soft); text-decoration:none}
+.mini-list{list-style:none; margin:0; padding:0}
+.mini-list li{border-top:1px solid var(--edge-soft)}
+.mini-list li:first-child{border-top:0}
+.mini-list a{display:flex; gap:11px; align-items:flex-start; padding:12px 0; color:inherit}
+.mini-list a:hover{text-decoration:none}
+.mini-list a:hover .mini-title{color:var(--accent-ink); text-decoration:underline}
+.mini-list .icon-tile{width:32px; height:32px; border-radius:8px}
+.mini-title{font-size:14px; line-height:1.5; display:block}
+.mini-meta{font-size:12px; color:var(--ink-3)}
+
+@media (max-width:1000px){ .detail-cols{grid-template-columns:1fr} }
+@media (max-width:600px){ .detail-hero{grid-template-columns:1fr; padding:22px; gap:14px} }

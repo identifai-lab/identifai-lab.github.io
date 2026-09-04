@@ -1,0 +1,158 @@
+/* =====================================================================
+   base.css — 全ページ共通のトークンと部品
+   色や余白をまとめて変えたいときは :root の値を編集してください。
+   ===================================================================== */
+:root{
+  --ink:#101d33;
+  --ink-2:#4b5b73;
+  --ink-3:#7a879b;
+  --bg:#eef1f6;
+  --surface:#ffffff;
+  --edge:#d6dde8;
+  --edge-soft:#e7ecf3;
+  --accent:#1f5fd8;
+  --accent-ink:#154aad;
+  --accent-soft:#e5edfd;
+  --focus:#ffb200;
+
+  --lv-beginner:#1f7a5a;
+  --lv-beginner-bg:#e2f3ec;
+  --lv-intermediate:#9a6210;
+  --lv-intermediate-bg:#fbeed7;
+  --lv-advanced:#7d3d86;
+  --lv-advanced-bg:#f3e6f6;
+
+  --radius:10px;
+  --shadow:0 1px 2px rgba(16,29,51,.06), 0 6px 16px -12px rgba(16,29,51,.35);
+  --sans:"Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --display:"Zen Kaku Gothic New", var(--sans);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:15px; line-height:1.75;
+  font-feature-settings:"palt" 1;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit; color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px}
+h1,h2,h3{font-family:var(--display); line-height:1.4; margin:0}
+.visually-hidden{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ---------- ヘッダー ---------- */
+.site-header{background:var(--surface); border-bottom:1px solid var(--edge); position:sticky; top:0; z-index:30}
+.header-inner{max-width:1240px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; gap:26px; flex-wrap:wrap}
+.brand{display:flex; align-items:center; gap:11px; color:inherit}
+.brand:hover{text-decoration:none}
+.brand-mark{
+  width:34px; height:34px; border-radius:9px; flex:none;
+  background:linear-gradient(148deg,var(--accent),#3d8ae0); display:grid; place-items:center; color:#fff;
+}
+.brand-name{font-family:var(--display); font-weight:700; font-size:17px; letter-spacing:.02em; display:block}
+.brand-sub{font-size:12px; color:var(--ink-3); line-height:1.2; display:block}
+.site-nav{display:flex; gap:4px; margin-left:auto}
+.site-nav a{
+  padding:8px 14px; border-radius:999px; color:var(--ink-2); font-size:14px;
+}
+.site-nav a:hover{background:var(--accent-soft); color:var(--accent-ink); text-decoration:none}
+.site-nav a[aria-current="page"]{background:var(--ink); color:#fff}
+
+/* ---------- ページ枠 ---------- */
+.wrap{max-width:1240px; margin:0 auto; padding:28px 24px 72px}
+.page-head{margin-bottom:22px; max-width:62ch}
+.page-head h1{font-size:27px; letter-spacing:.01em}
+.page-head p{margin:6px 0 0; color:var(--ink-2)}
+.crumbs{font-size:13px; color:var(--ink-3); margin-bottom:12px}
+.crumbs a{color:var(--ink-2)}
+.crumbs span{margin:0 7px; color:var(--edge)}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px;
+  border:1px solid var(--accent); background:var(--accent); color:#fff; cursor:pointer; font-size:14px;
+}
+.btn:hover{background:var(--accent-ink); color:#fff; text-decoration:none}
+.btn-ghost{background:transparent; color:var(--accent); border-color:var(--edge)}
+.btn-ghost:hover{background:var(--accent-soft); color:var(--accent-ink)}
+.link-btn{border:0; background:none; padding:2px 4px; color:var(--accent); cursor:pointer; font-size:13px; border-radius:4px}
+.link-btn:hover{text-decoration:underline}
+.link-btn[disabled]{color:var(--ink-3); cursor:default; text-decoration:none}
+
+/* ---------- 共通パーツ ---------- */
+.icon-tile{
+  width:42px; height:42px; border-radius:9px; flex:none; display:grid; place-items:center;
+  background:var(--accent-soft); color:var(--accent-ink);
+}
+.level{padding:2px 9px; border-radius:999px; font-size:12px; white-space:nowrap}
+.level-beginner{color:var(--lv-beginner); background:var(--lv-beginner-bg)}
+.level-intermediate{color:var(--lv-intermediate); background:var(--lv-intermediate-bg)}
+.level-advanced{color:var(--lv-advanced); background:var(--lv-advanced-bg)}
+.subject-tag{
+  font-size:12px; line-height:1.6; color:var(--ink-2); background:#f3f6fb;
+  border:1px solid var(--edge-soft); border-radius:6px; padding:1px 8px;
+}
+.dur{display:inline-flex; align-items:center; gap:5px; font-variant-numeric:tabular-nums}
+
+/* ---------- 研修カード（一覧・キャリアパス共通） ---------- */
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(268px,1fr)); gap:16px}
+.card{
+  display:flex; flex-direction:column; gap:12px; text-align:left; color:inherit;
+  background:var(--surface); border:1px solid var(--edge-soft); border-radius:var(--radius);
+  padding:18px 18px 15px; box-shadow:var(--shadow);
+  transition:border-color .15s ease, transform .15s ease;
+}
+.card:hover{border-color:#b9c8e0; transform:translateY(-2px); text-decoration:none}
+.card:hover .card-title{color:var(--accent-ink)}
+.card-top{display:flex; align-items:center; gap:12px}
+.card-kind{font-size:12.5px; color:var(--ink-3)}
+.card-title{font-size:16px; margin:0; color:var(--ink)}
+.card-desc{
+  margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.7;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+}
+.card-subjects{display:flex; flex-wrap:wrap; gap:6px}
+.card-foot{
+  margin-top:auto; padding-top:12px; border-top:1px solid var(--edge-soft);
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2);
+}
+.card-foot .level{margin-left:auto}
+
+/* ---------- パネル・空状態 ---------- */
+.panel{background:var(--surface); border:1px solid var(--edge-soft); border-radius:14px; padding:24px 26px; box-shadow:var(--shadow)}
+.panel + .panel{margin-top:18px}
+.panel h2{font-size:17px; margin-bottom:12px}
+.panel p{margin:0 0 12px; color:var(--ink-2); max-width:70ch}
+.check-list{list-style:none; margin:0; padding:0}
+.check-list li{position:relative; padding:5px 0 5px 27px; color:var(--ink-2)}
+.check-list li::before{
+  content:""; position:absolute; left:2px; top:14px; width:11px; height:6px;
+  border-left:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(-45deg);
+}
+.empty{
+  background:var(--surface); border:1px dashed var(--edge); border-radius:var(--radius);
+  padding:44px 28px; text-align:center;
+}
+.empty h3{font-size:17px; margin-bottom:6px}
+.empty p{color:var(--ink-2); margin:0 0 14px}
+
+/* ---------- フッター ---------- */
+.site-footer{
+  border-top:1px solid var(--edge); background:var(--surface);
+  padding:26px 24px; color:var(--ink-3); font-size:13px;
+}
+.footer-inner{max-width:1240px; margin:0 auto; display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.footer-inner nav{margin-left:auto; display:flex; gap:16px}
+
+@media (prefers-reduced-motion:reduce){ .card{transition:none} .card:hover{transform:none} }
+@media (max-width:600px){
+  .wrap{padding:20px 16px 60px}
+  .grid{grid-template-columns:1fr}
+  .site-nav{width:100%; margin-left:0}
+}

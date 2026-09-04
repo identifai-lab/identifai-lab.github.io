@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>研修を探す | ラーニングカタログ</title>
+<meta name="description" content="ロール・レベル・種類・サブジェクトで研修を絞り込めるカタログです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/catalog.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5-9 4.5z"/><path d="M6.5 10v5.5c0 1.5 2.6 2.8 5.5 2.8s5.5-1.3 5.5-2.8V10"/><path d="M21 7.5V14"/></svg>
+      </span>
+      <span>
+        <span class="brand-name" data-brand-name>ラーニングカタログ</span>
+        <span class="brand-sub" data-brand-sub>現場で使える研修を探す</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" data-nav="catalog">研修を探す</a>
+      <a href="careers.html" data-nav="careers">キャリアから探す</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>研修を探す</h1>
+    <p>ロール・レベル・種類・サブジェクトで絞り込めます。目指す職務から選びたいときは<a href="careers.html">キャリアから探す</a>をご覧ください。</p>
+  </div>
+
+  <div class="browse">
+    <aside class="filters" id="filters" data-mobile-open="false" aria-label="絞り込み">
+      <div class="filters-head">
+        <h2>絞り込み</h2>
+        <button class="link-btn" id="clearAll" type="button">すべて解除</button>
+      </div>
+      <div id="filterGroups"></div>
+    </aside>
+
+    <section aria-label="検索結果">
+      <div class="results-search">
+        <label class="visually-hidden" for="q">研修を検索</label>
+        <div class="searchbox">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="キーワードで検索（例：生成AI、COBOL）" autocomplete="off">
+          <button class="clear-q" id="clearQ" type="button" aria-label="検索キーワードを消す">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <button class="filter-toggle" id="filterToggle" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          絞り込み<span class="badge" id="filterBadge" hidden>0</span>
+        </button>
+        <p class="count" id="count"></p>
+        <div class="sort">
+          <label for="sort">並び替え</label>
+          <select id="sort">
+            <option value="default">おすすめ順</option>
+            <option value="title">名前順</option>
+            <option value="short">所要時間が短い順</option>
+            <option value="long">所要時間が長い順</option>
+            <option value="level">レベル順</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="ページ送り"></nav>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span data-brand-footer></span>
+    <nav>
+      <a href="index.html">研修を探す</a>
+      <a href="careers.html">キャリアから探す</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/data/config.js"></script>
+<script src="assets/data/contents.js"></script>
+<script src="assets/data/careers.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/catalog.js"></script>
+</body>
+</html>
